@@ -26,6 +26,23 @@
 studentsManagement.controller("localeSample", [
     "$scope", "$locale", function($scope,$locale) {
         $scope.myDate = Date.now();
+        console.log($locale);
         $scope.myFormat = $locale.DATETIME_FORMATS.longDate;
+    }
+]);
+
+studentsManagement.controller("exceptionSample", [
+    function() {
+        throw{ message: "Hello this is exception sample check." };
+    }
+]);
+
+studentsManagement.controller("cookieSample", [
+    "$scope", "$cookieStore", function ($scope, $cookieStore) {
+        var student = { name: "Sudheer", age: 25 };
+        $cookieStore.put("student", student);
+        $scope.cookie = function () {
+            return $cookieStore.get("student");
+        };
     }
 ]);
