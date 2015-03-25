@@ -1,5 +1,5 @@
 ﻿studentsManagement.controller("stController", [
-    "$scope", "$routeParams", function($scope, $routeParams) {
-        $scope.name = $routeParams.studentId;
+    "$scope", "$routeParams","$route", function($scope, $routeParams,$route) {
+        $scope.students = $route.current.locals.students;
     }
 ]);

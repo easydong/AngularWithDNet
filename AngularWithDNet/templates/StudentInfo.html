@@ -1,1 +1,11 @@
-﻿{{name}}
+﻿<table class="table table-hover">
+    <thead>
+        <tr><th>Name</th><th>Age</th></tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="student in students">
+            <td>{{student.Name}}</td>
+            <td>{{student.Age}}</td>
+        </tr>
+    </tbody>
+</table>
