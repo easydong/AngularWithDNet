@@ -7,7 +7,7 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
                 enabled: true,
                 requireBase: false
             });
-            $routeProvider.when("/Student/:studentId", {
+            $routeProvider.when("/Students", {
                 templateUrl: "/templates/StudentInfo.html",
                 controller: "stController",
                 resolve: {
