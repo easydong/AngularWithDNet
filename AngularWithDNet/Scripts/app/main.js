@@ -19,6 +19,15 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
 
                         return deferred.promise;
                     }
+                    ,
+                    student:function($q, stDataService) {
+                        var deferred = $q.defer();
+                        stDataService.getStudent("Sumanth").then(function (data) {
+                            deferred.resolve(data);
+                        });
+
+                        return deferred.promise;
+                    }
                 }
             });
         }
