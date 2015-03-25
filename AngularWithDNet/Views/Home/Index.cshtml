@@ -1,0 +1,34 @@
+﻿<div class="col-lg-5" ng-controller="studentsinfo">
+    <table class="table table-hover">
+        <thead>
+        <tr><th>Name</th><th>Age</th></tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="student in students">
+            <td>{{student.Name}}</td>
+            <td>{{student.Age}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="#" ng-click="appendGreeting()">Append greeting</a><br/>
+    <div id="greetingDiv"></div>
+    <br/>
+    Key: <input type="text" ng-model="keyuser"/><br/>
+    Value: <input type="text" ng-model="valueuser"/><br/>
+    <button ng-click="addCache(keyuser,valueuser)">Add Cache</button><br/>
+    Search key: <input type="text" ng-model="sKey"/><br/>
+    <span>{{getCache(sKey)}}</span><br/>
+    <span>{{cachestats()}}</span>
+</div>
+
+<div class="col-lg-5" ng-controller="localeSample">
+    My Date: {{myDate|date:myFormat}}
+</div>
+
+@section scripts{
+    <script src="~/Scripts/i18n/angular-locale_de-de.js"></script>
+    @*<script src="~/Scripts/i18n/angular-locale_en-in.js"></script>*@
+    <script src="~/Scripts/app/controllers/studentinfo.js"></script>
+    <script src="~/Scripts/app/services/stDataService.js"></script>
+    <script src="~/Scripts/app/services/myCache.js"></script>
+}

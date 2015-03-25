@@ -1,0 +1,42 @@
+﻿/* #region Page layout */
+html,body,#main {
+    min-height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI";
+    color: #333333;
+    font-size: 10.5pt;
+    overflow-x: hidden;
+}
+
+#pageWrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#banner {
+    height: 50px;
+    background-color: #ECECEC;
+    margin-top: -50px;
+}
+
+#footer {
+    height: 50px;
+    background-color: #ECECEC;
+    margin-bottom: -50px;
+}
+
+/* #endregion */
+
+    #footer > div > span {
+        margin-top: 3px;
+        display: block;
+    }
