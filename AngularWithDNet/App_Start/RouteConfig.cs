@@ -14,7 +14,12 @@ namespace AngularWithDNet
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
                 name: "Student Route",
-                url: "students/{*catchAll}",
+                url: "student/{*catchAll}",
+                defaults: new {Controller = "Home", action = "Index"}
+                );
+            routes.MapRoute(
+                name: "Students Route",
+                url: "students",
                 defaults: new {controller = "Home", action = "Index"}
                 );
             routes.MapRoute(

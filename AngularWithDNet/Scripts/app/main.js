@@ -8,8 +8,8 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
                 requireBase: false
             });
             $routeProvider.when("/Students", {
-                templateUrl: "/templates/StudentInfo.html",
-                controller: "stController",
+                templateUrl: "/templates/Students.html",
+                controller: "stsController",
                 resolve: {
                     students: function($q, stDataService) {
                         var deferred = $q.defer();
@@ -19,10 +19,15 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
 
                         return deferred.promise;
                     }
-                    ,
-                    student:function($q, stDataService) {
+                }
+            }).when("/Student/:studentName", {
+                templateUrl: "/templates/StudentInfo.html",
+                controller: "stController",
+                resolve: {
+                    student: function ($q, stDataService,$route) {
                         var deferred = $q.defer();
-                        stDataService.getStudent("Sumanth").then(function (data) {
+                        var stName = $route.current.params.studentName;
+                        stDataService.getStudent(stName).then(function(data) {
                             deferred.resolve(data);
                         });
 
