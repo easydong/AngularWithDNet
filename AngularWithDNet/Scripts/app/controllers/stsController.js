@@ -1,5 +1,6 @@
 ﻿studentsManagement.controller("stsController", [
-    "$scope", "$route", function($scope, $route) {
+    "$scope", "$route","$rootScope", function ($scope, $route,$rootScope) {
+        $rootScope.title = "Students";
         $scope.students = $route.current.locals.students;
     }
 ]);
