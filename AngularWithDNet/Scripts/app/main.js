@@ -7,28 +7,36 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
                 enabled: true,
                 requireBase: false
             });
-            $routeProvider.when("/Students", {
-                templateUrl: "/templates/StudentInfo.html",
-                controller: "stController",
+            $routeProvider.when("/", {
+                templateUrl: "/templates/Students.html",
+                controller: "stsController",
                 resolve: {
                     students: function($q, stDataService) {
                         var deferred = $q.defer();
-                        stDataService.students().then(function(student) {
-                            deferred.resolve(student);
-                        });
-
-                        return deferred.promise;
-                    }
-                    ,
-                    student:function($q, stDataService) {
-                        var deferred = $q.defer();
-                        stDataService.getStudent("Sumanth").then(function (data) {
+                        stDataService.query(function(data) {
                             deferred.resolve(data);
                         });
 
                         return deferred.promise;
                     }
                 }
+            }).when("/Student/:studentName", {
+                templateUrl: "/templates/StudentInfo.html",
+                controller: "stController",
+                resolve: {
+                    student: function($q, stDataService, $route) {
+                        var deferred = $q.defer();
+                        var stName = $route.current.params.studentName;
+                        stDataService.get({ stName: stName }, function(data) {
+                            deferred.resolve(data);
+                        });
+
+                        return deferred.promise;
+                    }
+                }
+            }).when("/Create", {
+                templateUrl: "/templates/CreateStudent.html",
+                controller: "stCreateController"
             });
         }
     ]);

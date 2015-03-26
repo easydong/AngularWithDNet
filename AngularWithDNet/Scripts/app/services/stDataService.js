@@ -1,27 +1,10 @@
 ﻿studentsManagement.factory("stDataService", [
-    "$http","$q","$resource",
-    function ($http, $q, $resource) {
-        return {
-            students: function () {
-                var deferred = $q.defer();
-                $resource("/api/StudentsApi").query(function(data) {
-                    deferred.resolve(data);
-                },function(error) {
-                    deferred.reject(error);
-                });
-
-                return deferred.promise;
-            },
-            getStudent:function(studentName) {
-                var deferred = $q.defer();
-                $resource("/api/StudentsApi?name=:studentName").get({ studentName: studentName }, function(data) {
-                    deferred.resolve(data);
-                }, function(error) {
-                    deferred.reject(error);
-                });
-
-                return deferred.promise;
-            }
-        }
+    "$resource",
+    function($resource) {
+        return $resource("api/StudentsApi", {}, {
+            query: { method: "GET", isArray: true },
+            update: { method: "POST" },
+            get: { method: "GET", url: "/api/StudentsApi?name=:stName" }
+        });
     }
 ]);
