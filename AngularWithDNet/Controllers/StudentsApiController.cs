@@ -31,7 +31,7 @@ namespace AngularWithDNet.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]StudentVm student)
+        public void Post(int id,[FromBody]StudentVm student)
         {
             students.Add(student);
         }
