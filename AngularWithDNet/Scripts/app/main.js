@@ -7,14 +7,14 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
                 enabled: true,
                 requireBase: false
             });
-            $routeProvider.when("/Students", {
+            $routeProvider.when("/", {
                 templateUrl: "/templates/Students.html",
                 controller: "stsController",
                 resolve: {
                     students: function($q, stDataService) {
                         var deferred = $q.defer();
-                        stDataService.students().then(function(student) {
-                            deferred.resolve(student);
+                        stDataService.query(function(data) {
+                            deferred.resolve(data);
                         });
 
                         return deferred.promise;
@@ -24,16 +24,19 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
                 templateUrl: "/templates/StudentInfo.html",
                 controller: "stController",
                 resolve: {
-                    student: function ($q, stDataService,$route) {
+                    student: function($q, stDataService, $route) {
                         var deferred = $q.defer();
                         var stName = $route.current.params.studentName;
-                        stDataService.getStudent(stName).then(function(data) {
+                        stDataService.get({ stName: stName }, function(data) {
                             deferred.resolve(data);
                         });
 
                         return deferred.promise;
                     }
                 }
+            }).when("/Create", {
+                templateUrl: "/templates/CreateStudent.html",
+                controller: "stCreateController"
             });
         }
     ]);
