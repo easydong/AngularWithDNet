@@ -22,14 +22,14 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
                         return deferred.promise;
                     }
                 }
-            }).when("/Student/:studentName", {
+            }).when("/Student/:id", {
                 templateUrl: "/templates/StudentInfo.html",
                 controller: "stController",
                 resolve: {
                     student: function($q, stDataService, $route) {
                         var deferred = $q.defer();
-                        var stName = $route.current.params.studentName;
-                        stDataService.get({ stName: stName }, function(data) {
+                        var id = $route.current.params.id;
+                        stDataService.get({ id: id }, function(data) {
                             deferred.resolve(data);
                         });
 

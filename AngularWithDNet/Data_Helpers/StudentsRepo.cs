@@ -13,14 +13,14 @@ namespace AngularWithDNet.Data_Helpers
             return _dbContext.Students;
         }
 
-        public StudentVm Get(string name)
+        public StudentVm Get(int id)
         {
-            return _dbContext.Students.SingleOrDefault(student => student.Name.Equals(name));
+            return _dbContext.Students.SingleOrDefault(student => student.Id.Equals(id));
         }
 
-        public void Post(string name,StudentVm student)
+        public void Post(int id,StudentVm student)
         {
-            var st = _dbContext.Students.Where(_st => _st.Name.Equals(student.Name));
+            var st = _dbContext.Students.Where(_st => _st.Id.Equals(id));
             _dbContext.Entry(st).CurrentValues.SetValues(student);
             _dbContext.SaveChanges();
         }

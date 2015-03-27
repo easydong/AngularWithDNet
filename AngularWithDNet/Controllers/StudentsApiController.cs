@@ -20,16 +20,16 @@ namespace AngularWithDNet.Controllers
         }
 
         // GET api/values/5
-        public HttpResponseMessage Get(string name)
+        public HttpResponseMessage Get(int id)
         {
-            var st = studentDb.Get(name);
+            var st = studentDb.Get(id);
             return Request.CreateResponse(HttpStatusCode.OK, st);
         }
 
         // POST api/values
-        public void Post(string name,[FromBody]StudentVm student)
+        public void Post(int id,[FromBody]StudentVm student)
         {
-            studentDb.Post(name, student);
+            studentDb.Post(id, student);
         }
 
         // PUT api/values/5
