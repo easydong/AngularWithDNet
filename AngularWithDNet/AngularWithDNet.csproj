@@ -273,10 +273,7 @@
     <Content Include="Scripts\app\controllers\stController.js" />
     <Content Include="Scripts\app\controllers\stCreateController.js" />
     <Content Include="Scripts\app\controllers\stsController.js" />
-    <Content Include="Scripts\app\controllers\studentinfo.js" />
     <Content Include="Scripts\app\main.js" />
-    <Content Include="Scripts\app\services\exceptionserv.js" />
-    <Content Include="Scripts\app\services\myCache.js" />
     <Content Include="Scripts\app\services\stDataService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
