@@ -46,9 +46,19 @@ body {
     margin-bottom: -50px;
 }
 
-    /* #endregion */
 
     #footer > div > span {
         margin-top: 3px;
         display: block;
     }
+/* #endregion */
+
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#main {
+    padding-top: 30px;
+    padding-left: 10px;
+}

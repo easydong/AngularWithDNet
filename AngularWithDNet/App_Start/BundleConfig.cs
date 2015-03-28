@@ -25,6 +25,7 @@ namespace AngularWithDNet
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include("~/Scripts/angular.js",
                 "~/Scripts/angular-route.js", "~/Scripts/angular-resource.js", "~/Scripts/angular-cookies.js"));
+            bundles.Add(new ScriptBundle("~/bundles/alertify").Include("~/Scripts/alertify/alertify.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
@@ -42,6 +43,7 @@ namespace AngularWithDNet
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include("~/Content/bootstrap.css"));
+            bundles.Add(new StyleBundle("~/Content/alertify").Include("~/Content/alertify/alertify.core.css","~/Content/alertify/alertify.default.css"));
         }
     }
 }

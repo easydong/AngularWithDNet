@@ -31,10 +31,11 @@ namespace AngularWithDNet.Data_Helpers
             _dbContext.SaveChanges();
         }
 
-        public void Delete(string name)
+        public void Delete(int id)
         {
-            var student = _dbContext.Students.SingleOrDefault(st => st.Name.Equals(name));
+            var student = _dbContext.Students.SingleOrDefault(st => st.Id.Equals(id));
             _dbContext.Students.Remove(student);
+            _dbContext.SaveChanges();
         }
     }
 }

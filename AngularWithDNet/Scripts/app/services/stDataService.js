@@ -3,8 +3,10 @@
     function($resource) {
         return $resource("api/StudentsApi", {}, {
             query: { method: "GET", isArray: true },
-            update: { method: "PUT" },
-            get: { method: "GET", url: "/api/StudentsApi?id=:id" }
+            create: { method: "PUT" },
+            get: { method: "GET", url: "/api/StudentsApi?id=:id" },
+            remove: { method: "DELETE", url: "/api/StudentsApi?id=:id" },
+            update: { method: "POST", url: "/api/StudentsApi?id=:id" }
         });
     }
 ]);

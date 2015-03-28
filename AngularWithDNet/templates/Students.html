@@ -7,7 +7,7 @@
             <tr ng-repeat="student in students">
                 <td>{{student.Name}}</td>
                 <td>{{student.Age}}</td>
-                <td><a href="/Student/{{student.Id}}">View Info</a></td>
+                <td><a href="/Student/{{student.Id}}"><i class="glyphicon windows-icon-flag" title="View info"></i></a> | <a href="javascript:void(0)" ng-click="$parent.removeStudent(student.Id,student)"><i class="glyphicon windows-icon-cancel" title="Delete"></i></a></td>
             </tr>
         </tbody>
     </table>
