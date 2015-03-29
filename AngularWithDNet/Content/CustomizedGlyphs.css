@@ -72,7 +72,7 @@
 .windows-icon-edit:before {
     content: "";
     font-family: 'Segoe UI Symbol';
-    font-size: 19px;
+    font-size: 14px;
 }
 
 .windows-icon-sort:before {
