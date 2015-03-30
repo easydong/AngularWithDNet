@@ -1,10 +1,10 @@
 ﻿"use strict";
 
-var studentsManagement = angular.module("studentsManagement", ["ngResource", "ngCookies", "ngRoute"]).run(function ($rootScope) {
-    $rootScope.title = "Home";
-})
+var studentsManagement = angular.module("studentsManagement", ["ngResource", "ngCookies", "ngRoute"]).run(function($rootScope) {
+        $rootScope.title = "Home";
+    })
     .config([
-        "$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider) {
+        "$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
             $locationProvider.html5Mode({
                 enabled: true,
                 requireBase: false
@@ -13,9 +13,9 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
                 templateUrl: "/templates/Students.html",
                 controller: "stsController",
                 resolve: {
-                    students: function ($q, stDataService) {
+                    students: function($q, stDataService) {
                         var deferred = $q.defer();
-                        stDataService.query(function (data) {
+                        stDataService.query(function(data) {
                             deferred.resolve(data);
                         });
 
@@ -26,10 +26,10 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
                 templateUrl: "/templates/StudentInfo.html",
                 controller: "stController",
                 resolve: {
-                    student: function ($q, stDataService, $route) {
+                    student: function($q, stDataService, $route) {
                         var deferred = $q.defer();
                         var id = $route.current.params.id;
-                        stDataService.get({ id: id }, function (data) {
+                        stDataService.get({ id: id }, function(data) {
                             deferred.resolve(data);
                         });
 
@@ -39,6 +39,19 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
             }).when("/Create", {
                 templateUrl: "/templates/CreateStudent.html",
                 controller: "stCreateController"
+            }).when("/StudentWInfoCard", {
+                templateUrl: "/templates/StudentsInfoCard.html",
+                controller: "stsInfoCardController",
+                resolve: {
+                    students: function($q, stDataService) {
+                        var deferred = $q.defer();
+                        stDataService.query(function(data) {
+                            deferred.resolve(data);
+                        });
+
+                        return deferred.promise;
+                    }
+                }
             });
         }
     ]);
