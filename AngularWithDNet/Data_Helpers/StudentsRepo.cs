@@ -20,7 +20,7 @@ namespace AngularWithDNet.Data_Helpers
             return _dbContext.Students.SingleOrDefault(student => student.Id == id);
         }
 
-        public void Post(int id, StudentVm student)
+        public void Put(int id, StudentVm student)
         {
             var st = _dbContext.Students.SingleOrDefault(_st => _st.Id == id);
             _dbContext.Students.Attach(st);
@@ -29,7 +29,7 @@ namespace AngularWithDNet.Data_Helpers
             _dbContext.SaveChanges();
         }
 
-        public void Put(StudentVm student)
+        public void Post(StudentVm student)
         {
             _dbContext.Students.Add(student);
             _dbContext.SaveChanges();

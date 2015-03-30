@@ -27,15 +27,15 @@ namespace AngularWithDNet.Controllers
         }
 
         // POST api/values
-        public void Post(int id,[FromBody]StudentVm student)
+        public void Post([FromBody]StudentVm student)
         {
-            studentDb.Post(id, student);
+            studentDb.Post(student);
         }
 
         // PUT api/values/5
-        public void Put([FromBody]StudentVm student)
+        public void Put(int id, [FromBody]StudentVm student)
         {
-            studentDb.Put(student);
+            studentDb.Put(id,student);
         }
 
         // DELETE api/values/5
