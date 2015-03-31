@@ -12,6 +12,10 @@ body {
     overflow-x: hidden;
 }
 
+#main {
+    padding-bottom: 30px;
+}
+
 #pageWrapper {
     position: absolute;
     left: 0;
