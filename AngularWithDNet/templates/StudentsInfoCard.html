@@ -1,3 +1,47 @@
 ﻿<div class="col-lg-2" ng-repeat="student in students" ng-show="!!student">
     <st-info-card student="student" remove="$parent.removeStudent(student.Id,student)"></st-info-card>
 </div>
+
+<div class="col-lg-10">
+    <p>Demo on sharing controller with multiple directives using require.</p>
+    <p>
+        <pre>
+<code>
+studentsManagement.directive("greeting", function () {
+    return {
+        restrict: "A",
+        template: "&lt;button ng-click='sayHello()' hindi spanish&gt;Say Hello&lt;/button&gt;",
+        replace: true,
+        controller: function ($scope) {
+            $scope.greetings = ["hello"];
+            $scope.sayHello = function () {
+                alert($scope.greetings.join());
+            };
+        }
+    }
+}).directive("hindi", function () {
+    return {
+        restrict: "A",
+        priority: 2,
+        <span class="marker">require: "^greeting",</span>
+        link: function (scope, element, attr) {
+            scope.greetings.push("नमस्कार");
+        }
+    }
+}).directive("spanish", function () {
+    return {
+        restrict: "A",
+        priority: 1,
+        <span class="marker">require: "^greeting",</span>
+        link: function (scope, element, attr) {
+            scope.greetings.push("hola");
+        }
+    }
+});
+</code>
+            
+</pre>
+    </p>
+    <p>Click below to see hello in english, spanish, hindi.</p>
+    <div greeting></div>
+</div>
