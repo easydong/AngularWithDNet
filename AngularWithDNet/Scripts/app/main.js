@@ -52,6 +52,19 @@ var studentsManagement = angular.module("studentsManagement", ["ngResource", "ng
                         return deferred.promise;
                     }
                 }
+            }).when("/StudentCollapsible", {
+                templateUrl: "/templates/StudentCollapsible.html",
+                controller: "stsCollapsibleController",
+                resolve: {
+                    students: function($q, stDataService) {
+                        var deferred = $q.defer();
+                        stDataService.query(function(data) {
+                            deferred.resolve(data);
+                        });
+
+                        return deferred.promise;
+                    }
+                }
             });
         }
     ]);
