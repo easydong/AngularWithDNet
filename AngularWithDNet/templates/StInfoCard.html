@@ -2,7 +2,7 @@
     <div class='panel-heading'>
         {{student.Name}}
         <div class="pull-right">
-            <i class="glyphicon windows-icon-cancel" ng-click="removeStudent(student.Id,student)"></i>
+            <i class="glyphicon windows-icon-cancel" ng-click="$parent.removeStudent(student.Id,student)"></i>
         </div>
     </div>
     <div class='panel-body'>
