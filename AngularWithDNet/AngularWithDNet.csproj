@@ -983,6 +983,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\plugins\directives\grid.js" />
+    <Content Include="Scripts\plugins\grid.js" />
     <Content Include="templates\CreateStudent.html" />
     <Content Include="templates\StInfoCard.html" />
     <Content Include="templates\StudentCollapsible.html" />
@@ -1007,6 +1009,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\plugins\services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

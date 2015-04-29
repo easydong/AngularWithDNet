@@ -1,8 +1,8 @@
 ﻿"use strict";
 
-var studentsManagement = angular.module("studentsManagement", ["ngResource", "ngCookies", "ngRoute"]).run(function($rootScope) {
+var studentsManagement = angular.module("studentsManagement", ["ngResource", "ngCookies", "ngRoute", "datagrid"]).run(function ($rootScope) {
         $rootScope.title = "Home";
-    })
+})
     .config([
         "$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
             $locationProvider.html5Mode({
